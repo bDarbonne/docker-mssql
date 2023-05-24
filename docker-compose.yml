@@ -1,0 +1,19 @@
+
+services:
+  db:
+    build:
+      context: .
+      target: base
+    container_name: mssql
+    image: mssql
+    network_mode: "host"
+    stdin_open: true
+    env_file: .env
+    tty: true
+    volumes:
+      - db-data:/var/opt/mssql
+
+volumes:
+  db-data:
+    name: mssql
+
